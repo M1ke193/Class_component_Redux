@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: [],
+      newTodo: "",
+    };
+  }
+  render() {
+    return (
+      <div className="App">
+        <h1 className="title">To Do List</h1>
+        <ul className="todo-list">
+          {this.state.todos.map((todo, index) => (
+            <li key={index} className="todo-item">
+              {todo}
+            </li>
+          ))}
+        </ul>
+        <input
+          type="text"
+          className="todo-input"
+          value={this.state.newTodo}
+          onChange={(e) => this.setState({ newTodo: e.target.value })}
+          placeholder="Add a new todo"
+        />
+        <button
+          className="add-todo-button"
+          onClick={() => {
+            if (this.state.newTodo.trim() !== "") {
+              this.setState((prevState) => ({
+                todos: [...prevState.todos, prevState.newTodo],
+                newTodo: "",
+              }));
+            }
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          Add Todo
+        </button>
+      </div>
+    );
+  }
 }
 
 export default App;
