@@ -1,6 +1,7 @@
 import "./App.css";
 import React from "react";
 import Child from "./Child.js";
+import PureComp from "./pure-comp-test/PureComp.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -64,13 +65,18 @@ class App extends React.Component {
         >
           Toggle Child
         </button>
+
         <hr/>
+
         {!this.state.isHideChild && (
           <Child
             todoQuantity={this.state.todos.length}
             removeTodoCB={this.removeTodoCB}
           />
         )} 
+
+        <hr/>
+        <PureComp/>
       </div>
     );
   }
