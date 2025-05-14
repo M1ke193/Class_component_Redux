@@ -33,13 +33,14 @@ class Child extends React.Component {
   render() {
     return (
       <>
+        <h3 className="title">Child Component</h3>
         <h2>{`TODO LENGTH: ${this.props.todoQuantity}`}</h2>
         <button className="add-todo-button" onClick={this.props.removeTodoCB}>
           Remove Todo
         </button>
-        <p>Tick: {this.state.tick}</p>
+        <p>Invterval Tick from componentDidMount: {this.state.tick}</p>
         <p>
-          When component updated ( Value = Todos lengh + 2): {this.state.updateValue}
+          When componentDidUpdate ( Value = Todos lengh + 2): {this.state.updateValue}
         </p>
       </>
     );

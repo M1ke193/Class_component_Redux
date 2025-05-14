@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import Child from "./child.js";
+import Child from "./Child.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -64,6 +64,7 @@ class App extends React.Component {
         >
           Toggle Child
         </button>
+        <hr/>
         {!this.state.isHideChild && (
           <Child
             todoQuantity={this.state.todos.length}

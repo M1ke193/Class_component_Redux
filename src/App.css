@@ -49,3 +49,7 @@ body {
   cursor: pointer;
   margin: 10px;
 }
+
+hr{
+  width: 100%;
+}
