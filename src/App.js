@@ -1,6 +1,6 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
+import Child from "./child.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -8,8 +8,25 @@ class App extends React.Component {
     this.state = {
       todos: [],
       newTodo: "",
+      isHideChild: false,
     };
+    this.removeTodoCB = this.removeTodoCB.bind(this);
   }
+
+  removeTodoCB (){
+    this.setState((prevState) => {
+      const newTodos = [...prevState.todos];
+      newTodos.pop();
+      return { todos: newTodos };
+    });
+  };
+
+  toggleChild = () => {
+    this.setState((prevState) => ({
+      isHideChild: !prevState.isHideChild
+    }));
+  }
+
   render() {
     return (
       <div className="App">
@@ -41,6 +58,18 @@ class App extends React.Component {
         >
           Add Todo
         </button>
+                <button
+          className="add-todo-button"
+          onClick={this.toggleChild}
+        >
+          Toggle Child
+        </button>
+        {!this.state.isHideChild && (
+          <Child
+            todoQuantity={this.state.todos.length}
+            removeTodoCB={this.removeTodoCB}
+          />
+        )} 
       </div>
     );
   }
