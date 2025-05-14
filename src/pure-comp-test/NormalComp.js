@@ -1,6 +1,6 @@
 import React from "react";
 
-class PureComp extends React.PureComponent {
+class NormalComp extends React.Component {
   renderCount = 0;
   constructor(props) {
     super(props);
@@ -16,16 +16,16 @@ class PureComp extends React.PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("componentDidUpdate");
+    console.log("componentDidUpdate normal component");
   }
 
   render() {
     this.renderCount++;
     return (
       <>
-        <h3 className="title">Pure Component Test</h3>
+        <h3 className="title">Normal Component Test</h3>
 
-        <label>Input for primaryVar (Render when value change)</label>
+        <label>Input for primaryVar ( Will render )</label>
         <input
           ref={this.firstInput}
           type="number"
@@ -41,7 +41,7 @@ class PureComp extends React.PureComponent {
           Change primaryVar
         </button>
 
-        <label>Input for referenceVar (No render when value change, but ref not change)</label>
+        <label>Input for referenceVar ( Will render )</label>
         <input
           ref={this.secondInput}
           type="number"
@@ -55,13 +55,12 @@ class PureComp extends React.PureComponent {
             this.setState({
               referenceVar: this.state.referenceVar,
             });
-            console.log("Value has been change but UI not render:", this.state.referenceVar);
           }}
         >
           Change referenceVar
         </button>
 
-        <label>Input for referenceVar (Render when value change, also ref change)</label>
+        <label>Input for referenceVar ( Will render )</label>
         <input
           ref={this.thirdInput}
           type="number"
@@ -74,7 +73,6 @@ class PureComp extends React.PureComponent {
              this.setState((prevState) => ({
               referenceVar: { ...prevState.referenceVar, value: Number(this.thirdInput.current.value) },
             }));
-            console.log("Value has been change and also render:", this.state.referenceVar);
           }}
         >
           Change whole referenceVar object
@@ -88,4 +86,4 @@ class PureComp extends React.PureComponent {
   }
 }
 
-export default PureComp;
+export default NormalComp;

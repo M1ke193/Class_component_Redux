@@ -1,7 +1,9 @@
 import "./App.css";
 import React from "react";
-import Child from "./Child.js";
+import Child from "./child.js";
 import PureComp from "./pure-comp-test/PureComp.js";
+import NormalComp from "./pure-comp-test/NormalComp.js";
+import ShouldUpdate from "./shouldUpdate.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -59,14 +61,12 @@ class App extends React.Component {
         >
           Add Todo
         </button>
-                <button
+        <button
           className="add-todo-button"
           onClick={this.toggleChild}
         >
           Toggle Child
         </button>
-
-        <hr/>
 
         {!this.state.isHideChild && (
           <Child
@@ -77,6 +77,12 @@ class App extends React.Component {
 
         <hr/>
         <PureComp/>
+
+        <hr/>
+        <NormalComp/>
+
+        <hr/>
+        <ShouldUpdate/>
       </div>
     );
   }

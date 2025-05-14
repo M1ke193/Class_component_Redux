@@ -10,6 +10,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100%;
+  padding: 15px;
 }
 
 .title{
@@ -33,6 +34,7 @@ body {
 }
 
 .todo-input{
+  margin: 20px 0px;
   width: 300px;
   padding: 10px;
   border-radius: 5px;
@@ -52,6 +54,7 @@ body {
 
 hr{
   width: 100%;
+  margin: 25px 0;
 }
 
 label {

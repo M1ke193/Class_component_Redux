@@ -16,7 +16,7 @@ class PureComp extends React.PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("componentDidUpdate");
+    console.log("componentDidUpdate pure component");
   }
 
   render() {
