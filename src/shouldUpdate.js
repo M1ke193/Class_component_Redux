@@ -35,7 +35,7 @@ class ShouldUpdate extends React.Component {
             console.log("value from state: ", this.state.field)
           }}
         >
-          Add Todo
+          Add Value 
         </button>
         <p>Render Count: {this.renderCount}</p>
         <p>Field variable: {this.state.field}</p>

@@ -19,6 +19,7 @@ class App extends React.Component {
       isLoading: true,
       userData: null,
     };
+    this.forwordRef = React.createRef();
     this.removeTodoCB = this.removeTodoCB.bind(this);
   }
 
@@ -61,6 +62,12 @@ class App extends React.Component {
     });
   };
 
+  handleChangeColor = () => {
+    if (this.forwordRef.current) {
+      this.forwordRef.current.changeColor();
+    }
+  };
+
   render() {
     return (
       <div className="App">
@@ -93,7 +100,7 @@ class App extends React.Component {
           Add Todo
         </button>
         <button className="add-todo-button" onClick={this.toggleChild}>
-          Toggle Child
+          Toggle Child (clear interval, when componentWillUnmount)
         </button>
 
         {!this.state.isHideChild && (
@@ -113,15 +120,21 @@ class App extends React.Component {
         <ShouldUpdate />
 
         <hr />
+        <h4>This is form Parent component</h4>
+        <button
+          className="add-todo-button"
+          onClick={this.handleChangeColor}
+        >
+          Change color component wrapped by HOC (forwardRef)
+        </button>
         <h4>USING HOC WITH LOADING</h4>
         <UserProfileWithLoading
+          ref={this.forwordRef}
           isLoading={this.state.isLoading}
           user={this.state.userData}
         />
         <h4>NOT USING HOC WITH LOADING</h4>
-        <UserProfile
-          user={this.state.userData}
-        />
+        <UserProfile user={this.state.userData} />
         <button className="add-todo-button" onClick={this.handleRefreshData}>
           Refresh Data
         </button>
