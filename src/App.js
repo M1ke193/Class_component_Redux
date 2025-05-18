@@ -80,9 +80,24 @@ class App extends React.Component {
     this.renderCount++;
     return (
       <div className="App">
+
+        {/* component set user from redux state */}
         <UserComp />
         <hr />
 
+
+
+
+
+      {/* component using redux thunk */}
+        <UserComp />
+        <hr />
+
+
+
+
+
+        {/* nomral component with todo list */}
         <h1 className="title">To Do List</h1>
         <ul className="todo-list">
           {this.state.todos.map((todo, index) => (
@@ -114,26 +129,39 @@ class App extends React.Component {
         <button className="add-todo-button" onClick={this.toggleChild}>
           Toggle Child (clear interval, when componentWillUnmount)
         </button>
-
         {!this.state.isHideChild && (
           <Child
             todoQuantity={this.state.todos.length}
             removeTodoCB={this.removeTodoCB}
           />
         )}
-
         <CounterComp />
         <p>Render Count: {this.renderCount}</p>
         <p>firstName user from redux state: {this.props.firstName ?? "Not set"}</p>
+
+
+
+
+
+        {/* comparison between pure component and normal component */}
         <hr />
         <PureComp />
-
         <hr />
         <NormalComp />
 
+
+
+
+
+        {/* component using life cycle shouldupdate */}
         <hr />
         <ShouldUpdate />
 
+
+
+
+
+        {/* component using HOC */}
         <hr />
         <h4>This is form Parent component</h4>
         <button
@@ -153,6 +181,11 @@ class App extends React.Component {
         <button className="add-todo-button" onClick={this.handleRefreshData}>
           Refresh Data
         </button>
+
+
+
+
+        
       </div>
     );
   }
