@@ -9,6 +9,7 @@ import UserProfile from "./HOC/Profile.js";
 import CounterComp from "./redux-test-comp/CounterComp.js";
 import UserComp from "./redux-test-comp/UserComp.js";
 import { connect } from "react-redux";
+import UserApiComp from "./redux-test-comp/userApiComp.js";
 
 const UserProfileWithLoading = withLoadingIndicator(UserProfile);
 class App extends React.Component {
@@ -82,14 +83,6 @@ class App extends React.Component {
       <div className="App">
 
         {/* component set user from redux state */}
-        <UserComp />
-        <hr />
-
-
-
-
-
-      {/* component using redux thunk */}
         <UserComp />
         <hr />
 
@@ -181,6 +174,14 @@ class App extends React.Component {
         <button className="add-todo-button" onClick={this.handleRefreshData}>
           Refresh Data
         </button>
+
+
+
+
+
+      {/* component using redux thunk */}
+        <UserApiComp/>
+        <hr />
 
 
 
