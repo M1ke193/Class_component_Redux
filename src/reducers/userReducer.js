@@ -1,4 +1,4 @@
-import { DELETE_USER, SET_USER } from '../actions/user';
+import { DELETE_USER, SET_USER } from '../actions/userAction';
 
 const initialState = {
     profile: {

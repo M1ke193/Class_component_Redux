@@ -1,15 +1,15 @@
 import "./App.css";
 import React from "react";
-import Child from "./child.js";
+import Child from "./Child.js";
 import PureComp from "./pure-comp-test/PureComp.js";
 import NormalComp from "./pure-comp-test/NormalComp.js";
-import ShouldUpdate from "./shouldUpdate.js";
+import ShouldUpdateComp from "./ShouldUpdateComp.js";
 import withLoadingIndicator from "./HOC/HOCLoading.js";
 import UserProfile from "./HOC/Profile.js";
 import CounterComp from "./redux-test-comp/CounterComp.js";
 import UserComp from "./redux-test-comp/UserComp.js";
 import { connect } from "react-redux";
-import UserApiComp from "./redux-test-comp/userApiComp.js";
+import UserApiComp from "./redux-test-comp/UserApiComp.js";
 
 const UserProfileWithLoading = withLoadingIndicator(UserProfile);
 class App extends React.Component {
@@ -148,7 +148,7 @@ class App extends React.Component {
 
         {/* component using life cycle shouldupdate */}
         <hr />
-        <ShouldUpdate />
+        <ShouldUpdateComp />
 
 
 

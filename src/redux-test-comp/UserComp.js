@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteUser, setUser } from '../actions/user';
+import { deleteUser, setUser } from '../actions/userAction';
 
 class UserComp extends React.Component {
     constructor(props) {

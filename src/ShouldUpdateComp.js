@@ -1,7 +1,7 @@
 import React from "react";
 import CounterComp from "./redux-test-comp/CounterComp";
 
-class ShouldUpdate extends React.Component {
+class ShouldUpdateComp extends React.Component {
   renderCount = 0;
   constructor(props) {
     super(props);
@@ -47,4 +47,4 @@ class ShouldUpdate extends React.Component {
   }
 }
 
-export default ShouldUpdate;
+export default ShouldUpdateComp;

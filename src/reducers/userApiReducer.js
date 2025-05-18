@@ -2,7 +2,7 @@ import {
     FETCH_USER_FAILURE,
     FETCH_USER_SUCCESS,
     FETCH_USER_REQUEST,
-} from '../actions/userApi';
+} from '../actions/userApiAction';
 
 const initialState = {
     loading: false,

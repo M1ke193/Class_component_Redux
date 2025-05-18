@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchUserAction } from '../actions/userApi';
+import { fetchUserAction } from '../actions/userApiAction';
 
 class UserApiComp extends React.Component {
     render() {
@@ -44,7 +44,6 @@ class UserApiComp extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.userApi.users)
     return {
         users: state.userApi.users, 
         loading: state.userApi.loading,
