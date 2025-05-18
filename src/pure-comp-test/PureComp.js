@@ -1,4 +1,6 @@
 import React from "react";
+import CounterComp from "../redux-test-comp/CounterComp";
+import { connect } from "react-redux";
 
 class PureComp extends React.PureComponent {
   renderCount = 0;
@@ -83,9 +85,19 @@ class PureComp extends React.PureComponent {
         <p>Render Count: {this.renderCount}</p>
         <p>Primary variable: {this.state.primaryVar}</p>
         <p>Reference variable : {this.state.referenceVar.value}</p>
+
+        <CounterComp />
+        <p>Full name user from redux state: {this.props.firstName ? `${this.props.firstName}-${this.props.lastName}`: "Not set"}</p>
       </>
     );
   }
 }
 
-export default PureComp;
+const mapStateToProps = (state) => {
+  return {
+    firstName: state.user.profile.firstName,
+    lastName: state.user.profile.lastName,
+  };
+};  
+
+export default connect(mapStateToProps)(PureComp);

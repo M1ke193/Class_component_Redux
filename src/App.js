@@ -6,9 +6,13 @@ import NormalComp from "./pure-comp-test/NormalComp.js";
 import ShouldUpdate from "./shouldUpdate.js";
 import withLoadingIndicator from "./HOC/HOCLoading.js";
 import UserProfile from "./HOC/Profile.js";
+import CounterComp from "./redux-test-comp/CounterComp.js";
+import UserComp from "./redux-test-comp/UserComp.js";
+import { connect } from "react-redux";
 
 const UserProfileWithLoading = withLoadingIndicator(UserProfile);
 class App extends React.Component {
+  renderCount = 0;
   constructor(props) {
     super(props);
     this.state = {
@@ -31,6 +35,10 @@ class App extends React.Component {
     });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log("component App did update");
+  }
+  
   componentWillUnmount() {
     clearTimeout(this.timerID);
   }
@@ -69,8 +77,12 @@ class App extends React.Component {
   };
 
   render() {
+    this.renderCount++;
     return (
       <div className="App">
+        <UserComp />
+        <hr />
+
         <h1 className="title">To Do List</h1>
         <ul className="todo-list">
           {this.state.todos.map((todo, index) => (
@@ -110,6 +122,9 @@ class App extends React.Component {
           />
         )}
 
+        <CounterComp />
+        <p>Render Count: {this.renderCount}</p>
+        <p>firstName user from redux state: {this.props.firstName ?? "Not set"}</p>
         <hr />
         <PureComp />
 
@@ -143,4 +158,10 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    firstName: state.user.profile.firstName,
+  }
+}
+
+export default connect(mapStateToProps)(App);

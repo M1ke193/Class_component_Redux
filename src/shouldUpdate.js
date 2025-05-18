@@ -1,4 +1,5 @@
 import React from "react";
+import CounterComp from "./redux-test-comp/CounterComp";
 
 class ShouldUpdate extends React.Component {
   renderCount = 0;
@@ -39,6 +40,8 @@ class ShouldUpdate extends React.Component {
         </button>
         <p>Render Count: {this.renderCount}</p>
         <p>Field variable: {this.state.field}</p>
+
+        <CounterComp />
       </>
     );
   }

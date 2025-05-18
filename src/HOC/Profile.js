@@ -1,5 +1,6 @@
 // src/UserProfile.js
 import React from 'react';
+import CounterComp from '../redux-test-comp/CounterComp';
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class UserProfile extends React.Component {
           <p><strong>Email:</strong> {user?.email}</p>
         </div>
         <p ref={this.colorP}>CHANGE to red color when press button</p>
+        <CounterComp />
       </>
     );
   }
